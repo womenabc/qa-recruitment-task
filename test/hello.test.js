@@ -6,7 +6,7 @@ const expect = require('chai').expect;
 const app = 'http://localhost:3000';
 
 describe('GET /hello', function() {
-  it('respond with specific hello message', function() {
+  it('respond with a specific hello message', function() {
   let testMessage = 'test_message_123'
 
     return request(app)
@@ -17,13 +17,13 @@ describe('GET /hello', function() {
       })
   });
 
-  it('respond 404 for empty name', function() {
+  it('respond 404 when empty name was given', function() {
     return request(app)
       .get(`/hello/`)
       .expect(404);
   });
 
-  it('respond 400 for too long name', function() {
+  it('respond 400 for a too long name', function() {
     return request(app)
       .get(`/hello/aaaaabbbbbcccccddddde`)
       .expect(400);
